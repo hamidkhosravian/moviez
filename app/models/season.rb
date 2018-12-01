@@ -3,4 +3,5 @@ class Season < ApplicationRecord
   validates :description, presence: true
 
   has_many :episodes
+  has_many :purchases, as: :purchaseable
 end
