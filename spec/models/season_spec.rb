@@ -8,5 +8,6 @@ RSpec.describe Season, type: :model do
 
   context "associations" do
     it { should have_many(:episodes) }
+    it { should have_many(:purchases) }
   end
 end
