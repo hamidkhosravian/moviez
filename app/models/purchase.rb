@@ -4,4 +4,5 @@ class Purchase < ApplicationRecord
   validates :price, presence: true
 
   belongs_to :purchaseable, polymorphic: true
+  belongs_to :user
 end
