@@ -18,7 +18,7 @@ module Api
 
       private
         def find_season
-          @season = Season.find(params[:id])
+          @season = Season.find(params[:season_id])
         end
 
         def find_episode
