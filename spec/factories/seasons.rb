@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :season do
-    name { "MyString" }
-    description { "MyText" }
+    name Faker::Name.name
+    description Faker::Movie.quote
   end
 end

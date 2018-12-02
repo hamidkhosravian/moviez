@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :episode do
-    name { "MyString" }
-    description { "MyText" }
-    season { nil }
+    name Faker::Name.name
+    description Faker::Movie.quote
+    season { create(:season) }
   end
 end

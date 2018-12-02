@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :movie do
-    name { "MyString" }
-    description { "MyText" }
-    price { "9.99" }
+    name Faker::Name.name
+    description Faker::Movie.quote
   end
 end
