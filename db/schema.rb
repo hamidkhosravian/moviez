@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_142306) do
     t.bigint "purchaseable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type"
+    t.integer "purchase_type"
     t.index ["purchaseable_type", "purchaseable_id"], name: "index_purchases_on_purchaseable_type_and_purchaseable_id"
   end
 
