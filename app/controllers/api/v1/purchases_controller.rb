@@ -21,7 +21,7 @@ module Api
         # it's just a sample of service
         result = UserPurchase::Save.call(
           purchase: find_purchase,
-          user: find_user
+          user: @user
         );
 
         raise BadRequestError, result.errors if result.failure?

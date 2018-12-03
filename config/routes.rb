@@ -5,6 +5,11 @@ Rails.application.routes.draw do
       resources :seasons, only: [:index, :show] do
         resources :episodes, only: [:index, :show]
       end
+
+      # different format of routes
+      get  "/users/:user_id/purchases",     to: 'purchases#index'
+      get  "/users/:user_id/purchases/:id", to: 'purchases#show'
+      post "/users/:user_id/purchases",     to: 'purchases#create'
     end
   end
 end
