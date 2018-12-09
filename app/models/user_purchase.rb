@@ -4,7 +4,7 @@ class UserPurchase < ApplicationRecord
 
   scope :valid_purchases, -> { where("created_at <= ?", Time.now + 2.days) }
 
-  validate :valid_user_purchase
+  before_create :valid_user_purchase
 
   private
     def valid_user_purchase

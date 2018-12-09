@@ -2,7 +2,7 @@ module Api
   module V1
     class PurchasesController < ApiController
       before_action :find_user
-      before_action :find_user_purchase, except: [:index]
+      before_action :find_user_purchase, only: [:show]
 
       def index
         param! :page, Integer, default: 1
@@ -19,7 +19,7 @@ module Api
 
       def create
         # it's just a sample of service
-        result = UserPurchase::Save.call(
+        result = UserPurchases::Save.call(
           purchase: find_purchase,
           user: @user
         );
