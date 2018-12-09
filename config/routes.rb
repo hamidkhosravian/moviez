@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       end
 
       # different format of routes
-      get  "/users/:user_id/purchases",     to: 'purchases#index'
-      get  "/users/:user_id/purchases/:id", to: 'purchases#show'
-      post "/users/:user_id/purchases",     to: 'purchases#create'
+      get  "/users/:user_id/purchases",     to: "purchases#index"
+      get  "/users/:user_id/purchases/:id", to: "purchases#show"
+      post "/users/:user_id/purchases",     to: "purchases#create"
     end
   end
 end

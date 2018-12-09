@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Api::V1::PurchasesController, type: :controller do
   let!(:user) { create(:user) }
@@ -34,7 +34,6 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
       end
 
       it "purchased more than 2 days" do
-        byebug
         user_purchase.update!(created_at: 3.days.ago)
         get :show, params: { id: user_purchase.id, user_id: user.id }
         expect(response).to have_http_status(404)

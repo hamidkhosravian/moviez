@@ -22,7 +22,7 @@ module Api
         result = UserPurchases::Save.call(
           purchase: find_purchase,
           user: @user
-        );
+        )
 
         raise BadRequestError, result.errors if result.failure?
 
