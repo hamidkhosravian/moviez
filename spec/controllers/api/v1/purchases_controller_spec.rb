@@ -34,11 +34,10 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
       end
 
       it "purchased more than 2 days" do
-        user_purchase.update!(created_at: 3.days.ago)
-        user_purchase.reload
         byebug
+        user_purchase.update!(created_at: 3.days.ago)
         get :show, params: { id: user_purchase.id, user_id: user.id }
-        expect(response).to have_http_status(400)
+        expect(response).to have_http_status(404)
       end
     end
   end

@@ -2,13 +2,13 @@ class UserPurchase < ApplicationRecord
   belongs_to :user
   belongs_to :purchase
 
-  scope :valid_purchases, -> { where("created_at <= ?", Time.now + 2.days) }
+  scope :valid_purchases, -> { where(created_at: 2.days.ago .. Time.now) }
 
-  before_create :valid_user_purchase
+  validate :valid_user_purchase, on: :create
 
   private
     def valid_user_purchase
-      errors.add(:user_purchase, message: "user purchased this #{purchase.purchaseable_type} before!") unless
+      errors.add(:message, "user purchased this #{purchase.purchaseable_type} before!") unless
         UserPurchase.valid_purchases.where(user: user, purchase: purchase).blank?
     end
 end
