@@ -4,6 +4,7 @@ class Purchase < ApplicationRecord
   validates :price, presence: true
 
   belongs_to :purchaseable, polymorphic: true
+  has_many :user_purchases
 
-  enum type: [:HD, :SD]
+  enum purchase_type: [:HD, :SD]
 end

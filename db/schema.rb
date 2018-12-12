@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_201449) do
+ActiveRecord::Schema.define(version: 2018_12_02_142306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_201449) do
     t.bigint "purchaseable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type"
+    t.integer "purchase_type"
     t.index ["purchaseable_type", "purchaseable_id"], name: "index_purchases_on_purchaseable_type_and_purchaseable_id"
   end
 
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2018_12_01_201449) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_purchases", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "purchase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_user_purchases_on_purchase_id"
+    t.index ["user_id"], name: "index_user_purchases_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -57,4 +66,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_201449) do
   end
 
   add_foreign_key "episodes", "seasons"
+  add_foreign_key "user_purchases", "purchases"
+  add_foreign_key "user_purchases", "users"
 end
