@@ -20,6 +20,9 @@ RSpec.describe Api::V1::EpisodesController, type: :controller do
   context "when called show" do
     it "an episode" do
       get :show, params: { id: episode.id, season_id: season.id }
+      puts "****************************************"
+      puts JSON.parse(response.body)
+      puts "****************************************"
       expect(response).to have_http_status(200)
       expect(JSON.parse(response.body)["id"]).to eq episode.id
     end

@@ -14,6 +14,9 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
     it "a movie" do
       movie = movies.sample
       get :show, params: { id: movie.id }
+      puts "****************************************"
+      puts JSON.parse(response.body)
+      puts "****************************************"
       expect(response).to have_http_status(200)
       expect(JSON.parse(response.body)["id"]).to eq movie.id
     end

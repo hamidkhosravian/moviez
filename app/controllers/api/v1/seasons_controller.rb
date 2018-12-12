@@ -7,7 +7,8 @@ module Api
         param! :page, Integer, default: 1
         param! :limit, Integer, default: 10
 
-        @seasons = Season.all.page(params[:page]).per(params[:limit])
+        @seasons = Season.all.order(create_by: :asc)
+        @seasons = @seasons.page(params[:page]).per(params[:limit])
         render "api/v1/seasons/index", status: :ok
       end
 
