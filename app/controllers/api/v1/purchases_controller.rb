@@ -2,18 +2,18 @@ module Api
   module V1
     class PurchasesController < ApiController
       before_action :find_user
-      before_action :find_user_purchase, only: [:show]
+      before_action :find_user_purchases, only: [:index, :show]
 
       def index
         param! :page, Integer, default: 1
         param! :limit, Integer, default: 10
 
-        @user_purchases = @user.user_purchases.valid_purchases
-        @user_purchases = @user_purchases.page(params[:page]).per(params[:limit])
+        @user_purchases = @user_purchases.order(created_at: :asc).page(params[:page]).per(params[:limit])
         render "api/v1/user_purchases/index", status: :ok
       end
 
       def show
+        @user_purchase = @user_purchases.find(params[:id])
         render "api/v1/user_purchases/show", status: :ok
       end
 
@@ -39,9 +39,8 @@ module Api
           @purchase = Purchase.find(params[:purchase_id])
         end
 
-        def find_user_purchase
-          find_user
-          @user_purchase = @user.user_purchases.valid_purchases.find(params[:id])
+        def find_user_purchases
+          @user_purchases = @user.user_purchases.valid_purchases
         end
     end
   end
