@@ -23,9 +23,6 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
   describe "when called show" do
     it "a purchase user" do
       get :show, params: { id: user_purchase.id, user_id: user.id }
-      puts "****************************************"
-      puts JSON.parse(response.body)
-      puts "****************************************"
       expect(response).to have_http_status(200)
       expect(JSON.parse(response.body)["id"]).to eq user_purchase.id
     end

@@ -14,9 +14,6 @@ RSpec.describe Api::V1::SeasonsController, type: :controller do
     it "a season" do
       season = seasons.sample
       get :show, params: { id: season.id }
-      puts "****************************************"
-      puts JSON.parse(response.body)
-      puts "****************************************"
       expect(response).to have_http_status(200)
       expect(JSON.parse(response.body)["id"]).to eq season.id
     end

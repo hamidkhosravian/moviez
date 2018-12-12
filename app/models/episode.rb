@@ -4,4 +4,6 @@ class Episode < ApplicationRecord
   validates :episode_number, presence: true, uniqueness: { scope: :season_id }
 
   belongs_to :season
+
+  default_scope { order(episode_number: :asc) }
 end
