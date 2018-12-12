@@ -8,7 +8,8 @@ module Api
         param! :page, Integer, default: 1
         param! :limit, Integer, default: 10
 
-        @episodes = @season.episodes.page(params[:page]).per(params[:limit])
+        @episodes = @season.episodes.order(episode_number: :asc)
+        @episodes = @episodes.page(params[:page]).per(params[:limit])
         render "api/v1/episodes/index", status: :ok
       end
 

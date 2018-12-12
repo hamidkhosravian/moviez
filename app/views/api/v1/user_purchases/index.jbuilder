@@ -4,5 +4,6 @@ json.purchases @user_purchases do |user_purchase|
 
   json.multimedia do
     json.name user_purchase.purchase.purchaseable.name
+    json.create_by user_purchase.purchase.purchaseable.create_by
   end
 end
