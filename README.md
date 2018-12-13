@@ -15,4 +15,5 @@ access to document after run the server: `localhost:3000/apidoc`
 
 # Future Features
 #### [ ] **User Authentucation**
+#### [ ] **Admin Panel**
 #### [ ] **Add Simple Payment**
