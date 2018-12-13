@@ -1,7 +1,7 @@
-README
+# README
 It's a sample of multimedia store with ruby on rails.
 
-#Run Project
+## Run Project
 #### make a copy from `database.sample.yml` and `storage.sample.yml` then remove `sample` from your copies. make change on your files. install require gems with `bundle install`, then run ` rails credentials:edit` to generate you rails secret keys. create and migrate database with `rake db:create` and `rake db:migrate`.
 
 the project is ready: `rails s`.
