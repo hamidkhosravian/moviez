@@ -1,6 +1,8 @@
 module Api
   module V1
     class PurchasesController < ApiController
+      include ::OpenApiDocs::Purchases
+
       before_action :find_user
       before_action :find_user_purchase, only: [:show]
 

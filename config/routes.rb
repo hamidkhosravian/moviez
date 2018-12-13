@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/apidoc' => redirect('/swagger/dist/index.html?url=/api_docs/open_api/blog_sample_openapi.json')
+
   namespace :api do
     namespace :v1 do
       resources :movies, only: [:index, :show]

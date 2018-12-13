@@ -24,3 +24,4 @@
 /config/database.yml
 /config/storage.yml
 /config/credentials.yml.enc
+/public/swagger

@@ -1,6 +1,8 @@
 module Api
   module V1
     class SeasonsController < ApiController
+      include ::OpenApiDocs::Seasons
+
       before_action :find_season, except: [:index]
 
       def index

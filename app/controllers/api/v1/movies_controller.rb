@@ -1,6 +1,8 @@
 module Api
   module V1
     class MoviesController < ApiController
+      include ::OpenApiDocs::Movies
+
       before_action :find_movie, except: [:index]
 
       def index

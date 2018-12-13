@@ -2,11 +2,7 @@ json.id @user_purchase.id
 json.created_at @user_purchase.created_at
 
 json.purchase do
-  json.id @user_purchase.purchase.id
-  json.name @user_purchase.purchase.name
-  json.price @user_purchase.purchase.price
-  json.description @user_purchase.purchase.description
-  json.purchase_type @user_purchase.purchase.purchase_type
+  json.partial! "/api/v1/user_purchases/details", locals: {purchase: @user_purchase.purchase}
 
   json.multimedia do
     json.id @user_purchase.purchase.purchaseable.id
