@@ -13,5 +13,5 @@ please get clone swagger ui inside you public folder:
 then run this command: `rake docs:generate`
 
 # Future Features
-###[ ] **User Authentucation**
-###[ ] **Add Simple Payment**
+#### [ ] **User Authentucation**
+#### [ ] **Add Simple Payment**
