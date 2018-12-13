@@ -11,6 +11,7 @@ please get clone swagger ui inside you public folder:
 `git submodule add git@github.com:wordnik/swagger-ui.git swagger`
 
 then run this command: `rake docs:generate`
+access to document after run the server: `localhost:3000/apidoc`
 
 # Future Features
 #### [ ] **User Authentucation**
