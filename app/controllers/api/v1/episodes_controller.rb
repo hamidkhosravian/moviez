@@ -1,6 +1,8 @@
 module Api
   module V1
     class EpisodesController < ApiController
+      include ::OpenApiDocs::Episodes
+
       before_action :find_season
       before_action :find_episode, only: [:show]
 

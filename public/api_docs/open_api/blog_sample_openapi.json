@@ -1,0 +1,305 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Moviez Swagger documentation",
+    "description": "API documentation of Moviez"
+  },
+  "servers": [
+    {
+      "url": "",
+      "description": "Main (production) server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Episodes"
+    },
+    {
+      "name": "Movies"
+    },
+    {
+      "name": "Purchases"
+    },
+    {
+      "name": "Seasons"
+    }
+  ],
+  "paths": {
+    "/api/v1/movies": {
+      "get": {
+        "summary": "show all movies",
+        "operationId": "MoviesIndex",
+        "tags": [
+          "Movies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/movies/{id}": {
+      "get": {
+        "summary": "show movie details",
+        "operationId": "MoviesShow",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/seasons": {
+      "get": {
+        "summary": "show all seasons",
+        "operationId": "SeasonsIndex",
+        "tags": [
+          "Seasons"
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/seasons/{id}": {
+      "get": {
+        "summary": "show season details",
+        "operationId": "SeasonsShow",
+        "tags": [
+          "Seasons"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/seasons/{season_id}/episodes": {
+      "get": {
+        "summary": "show all episodes",
+        "operationId": "EpisodesIndex",
+        "tags": [
+          "Episodes"
+        ],
+        "parameters": [
+          {
+            "name": "season_id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/seasons/{season_id}/episodes/{id}": {
+      "get": {
+        "summary": "show episode details",
+        "operationId": "EpisodesShow",
+        "tags": [
+          "Episodes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "season_id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{user_id}/purchases": {
+      "get": {
+        "summary": "show all purchases",
+        "operationId": "PurchasesIndex",
+        "tags": [
+          "Purchases"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{user_id}/purchases/{id}": {
+      "get": {
+        "summary": "show purchase details",
+        "operationId": "PurchasesShow",
+        "tags": [
+          "Purchases"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moviez response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "IdPath": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "id",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "SeasonIdPath": {
+        "name": "season_id",
+        "in": "path",
+        "required": true,
+        "description": "season_id",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "UserIdPath": {
+        "name": "user_id",
+        "in": "path",
+        "required": true,
+        "description": "user_id",
+        "schema": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

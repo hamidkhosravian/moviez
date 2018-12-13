@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include OpenApi::DSL
+
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_error
   rescue_from BadRequestError, with: :bad_request_error
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_error
